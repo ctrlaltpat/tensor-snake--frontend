@@ -1,5 +1,32 @@
 class ScoreBoard {
-  constructor() {
-    this.name = "something"
+  static init() {
+    this.scores = []
+    this.main = document.getElementById('main')
+  }
+
+  static render() {
+    API.getScores().then(scores => {
+      this.scores = scores
+      let scoreList = document.createElement('ul')
+      scoreList.id = "score-list"
+      scoreList.innerHTML = `
+        ${this.scores.map(score =>
+         '<li class="score-li">' + score.user_id + ': ' + score.seconds + '</li>'
+        )}
+      `
+      this.main.innerHTML = ""
+      this.main.appendChild(scoreList)
+    })  
+  }
+
+  static addListeners() {
+    let list = document.getElementById('score-list')
+    list.addEventListener('click', event => {
+      if(event.target.classList.contains('score-li')) {
+        console.log('li')
+      }
+    })
   }
 }
+
+ScoreBoard.init()

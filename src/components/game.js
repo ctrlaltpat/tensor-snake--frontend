@@ -1,17 +1,20 @@
 class Game {
-  constructor() {
-    this.nav = document.getElementById('nav')
+  static init() {
     this.main = document.getElementById('main')
-    this.footer = document.getElementById('footer')
-    this.titleScreen()
+    this.state = {
+      started: false,
+      username: '',
+      score: 0
+    }
   }
 
-  titleScreen() {
+  static render () {
     this.main.innerHTML = `
-      <div class="">
-        <button class="playBtn">Play</button>
-        <button class="scoreBoardBtn">View Scoreboard</button>
-      </div>
+      <h1>I'm the Game!</h1>
     `
   }
+
+
 }
+
+Game.init()
