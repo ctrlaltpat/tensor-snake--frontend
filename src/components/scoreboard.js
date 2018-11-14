@@ -11,7 +11,7 @@ class ScoreBoard {
       scoreList.id = "score-list"
       scoreList.innerHTML = `
         ${this.scores.map(score =>
-         '<li class="score-li">' + score.user_id + ': ' + score.seconds + '</li>'
+         '<li class="score-li">' + score.user_id + ': ' + score.points + '</li>'
         )}
       `
       this.main.innerHTML = ""
