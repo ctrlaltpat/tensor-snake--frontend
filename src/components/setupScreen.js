@@ -10,32 +10,38 @@ class SetupScreen {
       Name: <input type="text" id="name">
       <p>Choose an Avatar:</p>
 
-    <label>
-      <input type="radio" name="test" value="http://placehold.it/40x60/0bf/fff&text=A" checked>
-      <img src="http://placehold.it/40x60/0bf/fff&text=A">
-    </label>
-    
-    <label>
-      <input type="radio" name="test" value="http://placehold.it/40x60/0bf/fff&text=A">
-      <img src="http://placehold.it/40x60/b0f/fff&text=B">
-    </label>
-
+      ${
+        avatars.map((avatarUrl, i) => {
+          return `
+          <div class="box">
+          <label>
+            <input type="radio" class="radio" name="test" value="${i}" checked>
+            <img class="avatar" src="${avatarUrl}">
+          </label>
+          </div>
+          `
+        })
+        .join('')
+      }
 
       
-      <input type="submit">
+      <br><input type="submit">
       </form>
-      <pre id="log">
-      </pre>
+  
+
+    <button id="back">Go Back</button>
     `
     this.addListeners()
   }
+
+  
 
   static addListeners() {
     const formEl = document.querySelector('#setup-form')
     const formName = document.querySelector('#name')
     const  form = document.querySelector("form");
-    const log = document.querySelector("#log");
-
+    const back = document.querySelector("#back")
+  
     formEl.addEventListener('submit', event => {
       event.preventDefault()
       var data = new FormData(form);
@@ -44,7 +50,6 @@ class SetupScreen {
         output = entry[1] + "\r";
       };
       console.log(output);
-    
       const newUser = {
         name: formName.value,
         avatar: output
@@ -55,8 +60,12 @@ class SetupScreen {
       API.createPlayer(newUser)
       Game.render()
     })
-  }
 
+
+    back.addEventListener('click', event => {
+      TitleScreen.render()
+    })
+  }
 }
 
 SetupScreen.init()

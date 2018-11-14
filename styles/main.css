@@ -1,3 +1,12 @@
-body {
-  
+
+
+img.avatar {
+    width: 60px;
+    height: 75px;
+  }
+
+.box {
+    border: 1px solid black ;
+    width: 85px;
+    display: inline-flex;
 }

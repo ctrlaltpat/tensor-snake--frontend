@@ -13,6 +13,8 @@ class ScoreBoard {
         ${this.scores.map(score =>
          '<li class="score-li">' + score.user_name + ': ' + score.points + '</li>'
         ).join("")}
+
+      <button id="back">Go Back</button>
       `
       this.main.innerHTML = ""
       this.main.appendChild(scoreList)
@@ -25,6 +27,11 @@ class ScoreBoard {
       if(event.target.classList.contains('score-li')) {
         console.log('li')
       }
+    })
+
+
+    back.addEventListener('click', event => {
+      TitleScreen.render()
     })
   }
 }
