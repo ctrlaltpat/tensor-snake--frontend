@@ -7,11 +7,11 @@ class ScoreBoard {
   static render() {
     API.getScores().then(scores => {
       this.scores = scores
-      let scoreList = document.createElement('ul')
+      let scoreList = document.createElement('ol')
       scoreList.id = "score-list"
       scoreList.innerHTML = `
         ${this.scores.map(score =>
-         '<li class="score-li">' + score.user_id + ': ' + score.points + '</li>'
+         '<li class="score-li">' + score.user_name + ': ' + score.points + '</li>'
         ).join("")}
       `
       this.main.innerHTML = ""

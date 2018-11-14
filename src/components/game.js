@@ -13,8 +13,6 @@ class Game {
       <h1>I'm the Game!</h1>
     `
   }
-
-
 }
 
 Game.init()
