@@ -6,7 +6,7 @@ class API {
     this.reviewsUrl = this.baseUrl + '/reviews'
   }
 
-  static createPlayer (player) {
+  static createPlayer(player) {
     fetch(this.playersUrl, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -25,6 +25,23 @@ class API {
       body: JSON.stringify({score: scoreObject})
     })
   }
+
+  static getReviews() {
+    return fetch(this.reviewsUrl)
+      .then(res => res.json())
+  }
+
+
+  static createReviews(review) {
+    fetch(this.reviewsUrl, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(review)
+    })
+
+  }
+
+
 }
 
 API.init()

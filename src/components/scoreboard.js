@@ -7,12 +7,14 @@ class ScoreBoard {
   static render() {
     API.getScores().then(scores => {
       this.scores = scores
-      let scoreList = document.createElement('ul')
+      let scoreList = document.createElement('ol')
       scoreList.id = "score-list"
       scoreList.innerHTML = `
         ${this.scores.map(score =>
-         '<li class="score-li">' + score.user_id + ': ' + score.points + '</li>'
+         '<li class="score-li">' + score.user_name + ': ' + score.points + '</li>'
         ).join("")}
+
+      <button id="back">Go Back</button>
       `
       this.main.innerHTML = ""
       this.main.appendChild(scoreList)
@@ -25,6 +27,11 @@ class ScoreBoard {
       if(event.target.classList.contains('score-li')) {
         console.log('li')
       }
+    })
+
+
+    back.addEventListener('click', event => {
+      TitleScreen.render()
     })
   }
 }
