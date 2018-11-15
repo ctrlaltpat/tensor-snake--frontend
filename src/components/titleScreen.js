@@ -19,6 +19,7 @@ class TitleScreen {
     container.addEventListener('click', (e) => {
       if (e.target.classList.contains('playBtn')) {
         SetupScreen.render()
+        Game.init(4, 1)
       } else if (e.target.classList.contains('scoreBoardBtn')) {
         ScoreBoard.render()
       }
