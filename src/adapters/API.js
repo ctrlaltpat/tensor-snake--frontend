@@ -25,6 +25,23 @@ class API {
       body: JSON.stringify(scoreObject)
     })
   }
+
+  static getReviews() {
+    return fetch(this.reviewsUrl)
+      .then(res => res.json())
+  }
+
+
+  static createReviews(review) {
+    fetch(this.reviewsUrl, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(review)
+    })
+
+  }
+
+
 }
 
 API.init()

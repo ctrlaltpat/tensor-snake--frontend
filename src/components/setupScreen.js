@@ -24,7 +24,6 @@ class SetupScreen {
         .join('')
       }
 
-      
       <br><input type="submit">
       </form>
   

@@ -10,3 +10,38 @@ img.avatar {
     width: 85px;
     display: inline-flex;
 }
+
+.checked {
+    color: orange;
+}
+
+.rating-container {
+    border: 1px solid black ;
+    width: 32rem;
+}
+
+.rating-container h4,
+.rating-container form {
+    text-align: center;
+}
+
+.rating-container input {
+    height: 2em;
+    width: 320px;
+    max-width: 90%;
+
+}
+
+.rating-container  input[type="submit"]{
+    width: 150px;
+    padding: 1em;
+    display: inline-block;
+}
+
+.fieldset {
+    border: none;
+}
+
+.rating-container textarea {
+    width: 320px;
+}
