@@ -9,23 +9,9 @@ class SetupScreen {
     <div id="userSettings">
 
       <form id='setup-form'>
-        <p>Enter your name:</p>
+        <h2>Enter your name:</h2>
         <input type="text" id="name">
-        <p>Choose an Avatar:</p>
-
-        ${
-          avatars.map((avatarUrl, i) => {
-            return `
-            <div class="box">
-            <label>
-              <input type="radio" class="radio" name="test" value="${i}" checked>
-              <img class="avatar" src="${avatarUrl}">
-            </label>
-            </div>
-            `
-          })
-          .join('')
-        }
+        
         <br><br><br>
         <input type="submit" value="Start Game">
         </form>
@@ -39,12 +25,28 @@ class SetupScreen {
     this.addListeners()
   }
 
+  // avatars
+  // <p>Choose an Avatar:</p>
+
+  //   ${
+  //     avatars.map((avatarUrl, i) => {
+  //       return `
+  //       <div class="box">
+  //       <label>
+  //         <input type="radio" class="radio" name="test" value="${i}" checked>
+  //         <img class="avatar" src="${avatarUrl}">
+  //       </label>
+  //       </div>
+  //       `
+  //     })
+  //     .join('')
+  //   }
   
 
   static addListeners() {
     const formEl = document.querySelector('#setup-form')
     const formName = document.querySelector('#name')
-    const form = document.querySelector("form")
+    // const form = document.querySelector("form")
     const setup = document.querySelector("#tensor-setup")
     const back = document.querySelector("#back")
 
@@ -55,14 +57,14 @@ class SetupScreen {
 
     function startGame(event) {
       event.preventDefault()
-      let data = new FormData(form);
-      let output = "";
-      for (const entry of data) {
-        output = entry[1] + "\r";
-      };
+      // let data = new FormData(form);
+      // let output = "";
+      // for (const entry of data) {
+      //   output = entry[1] + "\r";
+      // };
       const newUser = {
-        name: formName.value,
-        avatar: output
+        name: formName.value
+        // avatar: output
       }
       if (newUser.name !== "") {
         API.createPlayer(newUser)
