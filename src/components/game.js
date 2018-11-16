@@ -25,15 +25,19 @@ class Game {
 
   static setup(difficulty) {
     this.main.innerHTML = `
-      <h1>${this.currentScore}</h1>
+      <h1 class="not-dis">${this.currentScore}</h1>
       <div id="game-container">
-        <canvas id="game" width="1200" height="800"></canvas>
+        <canvas id="game" width='1200' height='800'></canvas>
       </div>
     `
     this.gc = document.getElementById('game-container')
     this.currentScore = document.querySelector('h1')
     this.currentScore.innerHTML = "Score: 0"
     this.canvas = document.getElementById("game");
+    this.canvas.height = innerHeight - 10
+    window.addEventListener('resize', () => {
+      this.canvas.height = innerHeight - 10
+    })
     this.ctx = this.canvas.getContext('2d');
 
     this.speed = difficulty*10
@@ -52,7 +56,7 @@ class Game {
     
     if (this.snake.death()){
       clearInterval(this.play)
-      API.addScore({user_id: this.userId, points: this.score})
+      API.addScore({user_id: this.state.userId, points: this.state.score})
       this.gameOver()
     };
     
@@ -120,10 +124,12 @@ class Game {
     gameOverBox.innerHTML = `
       <div id="game-over-inner">
         <h2>GAME OVER</h2>
-        <button id="play-again">Play Again</button>
-        <button id="view-scoreboard">View Scoreboard</button>
+        <button class="moving-border" id="play-again">Play Again</button>
+        <button class="moving-border" id="view-scoreboard">View Scoreboard</button>
       </div>
     `
+    let h1 = document.querySelector('h1')
+    h1.classList.remove('not-dis')
     this.gc.appendChild(gameOverBox)
     gameOverBox.addEventListener('click', (e) => {
       if (e.target.id === "play-again") {

@@ -6,14 +6,14 @@ class ScoreBoard {
 
   static render() {
     API.getScores().then(scores => {
-      this.scores = scores
-      let scoreList = document.createElement('ol')
+      this.scores = scores.slice(0,20)
+      let scoreList = document.createElement('div')
       scoreList.id = "score-list"
-      scoreList.innerHTML = `
+      scoreList.innerHTML = `<ol>
         ${this.scores.map(score =>
          '<li class="score-li">' + score.user_name + ': ' + score.points + '</li>'
         ).join("")}
-
+      </ol>
       <button id="back">Go Back</button>
       `
       this.main.innerHTML = ""

@@ -7,11 +7,11 @@ class API {
   }
 
   static createPlayer(player) {
-    fetch(this.playersUrl, {
+    return fetch(this.playersUrl, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(player)
-    })
+    }).then(res => res.json())
   }
 
   static getScores() {
@@ -32,13 +32,12 @@ class API {
   }
 
 
-  static createReviews(review) {
+  static createReview(review) {
     fetch(this.reviewsUrl, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(review)
     })
-
   }
 
 
