@@ -8,11 +8,11 @@ controllerDiv.innerHTML += `
         <!-- Big buttons. -->
         <div class="panel-row big-buttons">
           <button id="train">
-            <img width="66" height="66" src="./images/button.svg" />
+            <img width="66" height="66" src="./img/button.png" />
             <span id="train-status">TRAIN MODEL</span>
           </button>
           <button id="predict">
-            <img width="66" height="66" src="./images/button.svg" />
+            <img width="66" height="66" src="./img/button.png" />
             <span>PLAY</span>
           </button>
         </div><!-- /.panel-row -->
@@ -131,7 +131,7 @@ controllerDiv.innerHTML += `
           </div><!-- ./panel-cell -->
 
           <div class="panel-cell panel-cell-center panel-cell-fill">
-            <img height="108" width="129" src="./images/joystick.png" />
+            <img height="108" width="auto" src="./img/directions.png" />
           </div><!-- ./panel-cell -->
 
           <div class="panel-cell panel-cell-right">

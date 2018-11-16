@@ -51430,7 +51430,25 @@ function startSnake() {
 }
 
 function predictClass(classId) {
-  Game.controller(CONTROL_CODES[classId]);
+  // console.log('something', CONTROL_CODES[classId])
+  // Game.controller(CONTROL_CODES[classId]);
+  if (CONTROL_CODES[classId] === 38) {
+    if (Game.snake.ySpeed === 0) {
+      Game.snake.move(0, -1);   
+    }
+  } else if (CONTROL_CODES[classId] === 40) {
+    if (Game.snake.ySpeed === 0) {
+     Game.snake.move(0, 1); 
+    }
+  } else if (CONTROL_CODES[classId] === 39) {
+    if (Game.snake.xSpeed === 0) {
+      Game.snake.move(1, 0);
+    }
+  } else if (CONTROL_CODES[classId] === 37) {
+    if (Game.snake.xSpeed === 0) {
+     Game.snake.move(-1, 0); 
+    }
+  }
   document.body.setAttribute('data-active', CONTROLS[classId]);
 }
 

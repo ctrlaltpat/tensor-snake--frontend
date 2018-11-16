@@ -1,6 +1,7 @@
 class SetupScreen {
   static init () {
     this.main = document.getElementById('main')
+    this.controller = document.getElementById('controllerDiv')
   }
 
   static render() {
@@ -43,10 +44,16 @@ class SetupScreen {
   static addListeners() {
     const formEl = document.querySelector('#setup-form')
     const formName = document.querySelector('#name')
-    const form = document.querySelector("form");
+    const form = document.querySelector("form")
+    const setup = document.querySelector("#tensor-setup")
     const back = document.querySelector("#back")
+
+    const playButton = document.querySelector('button#predict')
   
-    formEl.addEventListener('submit', event => {
+    formEl.addEventListener('submit', startGame)
+    playButton.addEventListener('click', startGame)
+
+    function startGame(event) {
       event.preventDefault()
       let data = new FormData(form);
       let output = "";
@@ -67,8 +74,13 @@ class SetupScreen {
              Game.render()
            })
       }
-    })
+      SetupScreen.controller.classList.add("trained")
+    }
 
+    setup.addEventListener('click', event => {
+      
+      this.controller.classList.add("setup")
+    })
 
     back.addEventListener('click', event => {
       TitleScreen.render()

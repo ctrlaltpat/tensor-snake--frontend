@@ -27,7 +27,7 @@ class Game {
     this.main.innerHTML = `
       <h1 class="not-dis">${this.currentScore}</h1>
       <div id="game-container">
-        <canvas id="game" width='1200' height='800'></canvas>
+        <canvas id="game" width='1600' height='800'></canvas>
       </div>
     `
     this.gc = document.getElementById('game-container')
@@ -40,7 +40,7 @@ class Game {
     })
     this.ctx = this.canvas.getContext('2d');
 
-    this.speed = difficulty*10
+    this.speed = difficulty*5
     this.snake = new Snake()
 
     document.addEventListener('keydown', this.controller)
@@ -124,8 +124,8 @@ class Game {
     gameOverBox.innerHTML = `
       <div id="game-over-inner">
         <h2>GAME OVER</h2>
-        <button class="moving-border" id="play-again">Play Again</button>
-        <button class="moving-border" id="view-scoreboard">View Scoreboard</button>
+        <button class="" id="play-again">Play Again</button>
+        <button class="" id="view-scoreboard">View Scoreboard</button>
       </div>
     `
     let h1 = document.querySelector('h1')
@@ -136,6 +136,8 @@ class Game {
         gameOverBox.remove()
         this.render()
       } else if (e.target.id === "view-scoreboard") {
+        SetupScreen.controller.classList.remove("setup")
+        SetupScreen.controller.classList.remove("trained")
         ScoreBoard.render()
       }
     })
@@ -150,8 +152,8 @@ class Game {
 
 class Snake {
   constructor() {
-    this.x = 0;
-    this.y = 0;
+    this.x = (Math.floor(Game.canvas.width/Game.cellSize)*Game.cellSize / 2) - 200;
+    this.y = (Math.floor(Game.canvas.width/Game.cellSize)*Game.cellSize / 2) - 200;
     this.xSpeed = 1;
     this.ySpeed = 0;
     this.total = 1;
