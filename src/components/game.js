@@ -12,7 +12,7 @@ class Game {
     this.ctx = {}
     this.currentScore = {}
     this.cellSize = 40
-    this.speed = 10
+    this.speed = 5
     this.snake = {}
     this.food = {}
     this.icons = ["android", "csharp", "git", "github", "golang", "html5", "javascript", "jsx", "laravel", "node", "python", "react", "ruby", "sass", "sql", "swift", "unity", "vim", "vscode"]
@@ -27,16 +27,16 @@ class Game {
     this.main.innerHTML = `
       <h1 class="not-dis">${this.currentScore}</h1>
       <div id="game-container">
-        <canvas id="game" width='1600' height='800'></canvas>
+        <canvas id="game" width='800' height='800'></canvas>
       </div>
     `
     this.gc = document.getElementById('game-container')
     this.currentScore = document.querySelector('h1')
     this.currentScore.innerHTML = "Score: 0"
     this.canvas = document.getElementById("game");
-    this.canvas.height = innerHeight - 10
+    this.canvas.height = innerHeight - 50
     window.addEventListener('resize', () => {
-      this.canvas.height = innerHeight - 10
+      this.canvas.height = innerHeight - 50
     })
     this.ctx = this.canvas.getContext('2d');
 

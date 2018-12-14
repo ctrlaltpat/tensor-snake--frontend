@@ -48,11 +48,11 @@ class ScoreBoard {
 
   static addListeners() {
     let list = document.getElementById('score-list')
-    list.addEventListener('click', event => {
-      if(event.target.classList.contains('score-li')) {
-        console.log('li')
-      }
-    })
+    // list.addEventListener('click', event => {
+    //   if(event.target.classList.contains('score-li')) {
+    //     console.log('li')
+    //   }
+    // })
 
 
     back.addEventListener('click', event => {
