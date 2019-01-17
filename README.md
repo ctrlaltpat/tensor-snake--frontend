@@ -6,3 +6,5 @@ This project uses the [Webcam Transfer Learning](https://github.com/tensorflow/t
 Swapped PACMAN with a snake game for a group project in Flatiron School's 3rd Module.
 
 Coded by [Aisha](https://github.com/wimbleclaw) & [Patrick](https://github.com/ctrlaltpat)
+
+[Demo](https://youtu.be/vEvEFGxGyMg)
